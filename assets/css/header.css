@@ -48,6 +48,7 @@ body > input[type="checkbox"] {
 {
     --White:#2b3945;        /* Dark Mode Colors */
     --VeryDarkBlue:#ffffff;
+    --LightGrey : #202c37;
 }
 
 
