@@ -1,0 +1,59 @@
+/* header */
+
+header{
+    background-color: var(--White);
+}
+
+header h1{
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+
+/* Dark Mode */
+
+body > input[type="checkbox"] {
+    position:absolute;
+    right: 5%;
+    top: 24px;
+    z-index: 3;
+    appearance: none;
+    cursor: pointer;
+    color:var(--VeryDarkBlue);   
+}
+
+
+
+.dark-mode-btn:before {         /* Replacing it with the moon icon */
+    content: '\f186';
+    font-family: "Font Awesome 5 Free";
+    font-weight: 300;
+    font-size: 16px;
+    
+}
+
+.dark-mode-btn:after {
+    content: 'Dark Mode';
+    font-family: sans-serif;
+    font-weight: 300;
+    padding-left:5px;
+    font-size: 16px;
+    
+}
+
+
+
+.dark-mode-btn:checked ,      /* if darkmode btn is checked */
+.dark-mode-btn:checked ~ * 
+{
+    --White:#2b3945;        /* Dark Mode Colors */
+    --VeryDarkBlue:#ffffff;
+}
+
+
+
+/* /////////////////////////////////// */
+
+
+
+/* Media Query */
