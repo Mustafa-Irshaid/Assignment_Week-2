@@ -1,0 +1,81 @@
+/* main */
+
+main{
+    background-color: var(--LightGrey);
+    min-height: 100vh;
+}
+
+
+/* Backward Anchor */
+
+.anchor--backward-routing{
+    color:var(--VeryDarkBlue);
+    background-color: var(--White);
+    font-size: 14px;
+    transition: box-shadow 0.3s;
+}
+
+.anchor--backward-routing:hover{
+    box-shadow:transparent 0 0 0 !important;
+}
+
+.anchor--backward-routing::before{
+    content:'\f177';
+    font-family: "Font Awesome 5 Free";
+    font-weight: 600;
+    position: absolute;
+    left:30%;
+    top:50%;
+    transform: translate(-50%,-50%);
+    transition: left 0.3s;
+}
+
+.anchor--backward-routing:hover::before{
+    left:25%;
+    box-shadow:transparent 0 0 0 !important;
+}
+
+
+/* Card Image */
+
+.card-image--cover{
+    min-height: 100% !important;
+    object-fit: cover !important;
+}
+
+
+/* Card Body - Card Title , Details , Border Countries */
+
+.card-title ,
+.card-body-details span ,
+.border-countries-routers a ,
+.card-body-details li {
+    font-size: 14px;
+    font-family: sans-serif;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;  
+}
+
+.card-body-details span{
+    color:var(--DarkGrey);
+}
+
+.border-countries h5{
+    font-size: 15px;
+}
+
+.border-countries-routers a {
+    color:var(--VeryDarkBlue);
+    background-color: var(--White);
+    font-size: 14px;
+    font-family: sans-serif;
+    transition: box-shadow 0.3s;
+}
+
+.border-countries-routers a:hover{
+    box-shadow: none !important;
+}
+
+
+
