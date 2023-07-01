@@ -38,6 +38,7 @@
 .form-section .dropdown .btn{
     background-color: var(--White);
     color: var(--VeryDarkBlue) ;
+    transition: none;
 }
 
 .form-section .dropdown .btn::after{

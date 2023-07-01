@@ -4,12 +4,16 @@
 
 /* Public */
 
-
 *{
     color:var(--VeryDarkBlue);
     background-color: var(transparent);
     font-family: sans-serif;
-    transition: background-color .3s linear;
+    transition: color 0.3s linear , background-color 0.3s linear;
+}
+
+body{
+    margin:0;
+    padding:0;
 }
 
 :root{
@@ -22,6 +26,14 @@
 
 .centralized-container{
     width:90%;
+}
+
+ul{
+    list-style-type: none;
+}
+
+a{
+    text-decoration: none;
 }
 
 

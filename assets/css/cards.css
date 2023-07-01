@@ -1,0 +1,25 @@
+.card-section h5{
+    font-weight: 600;
+    color:var(--VeryDarkBlue)
+}
+
+
+.card-section img{
+    height: 256px;
+    object-fit: cover;
+}
+
+.card-section .card-body{
+    background-color: var(--White);
+}
+
+.card-section{
+    background-color: var(--LightGrey);
+}
+
+.card-section li, .card-section h5{
+    width:100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
