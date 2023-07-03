@@ -35,9 +35,13 @@
 
 /* Dropdown Filter */
 
-.form-section .dropdown .btn{
+.form-section .dropdown{
     background-color: var(--White);
-    color: var(--VeryDarkBlue) ;
+    
+}
+
+.form-section .dropdown .btn{
+    color: var(--VeryDarkBlue);
     transition: none;
 }
 

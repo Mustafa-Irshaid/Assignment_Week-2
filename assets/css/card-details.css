@@ -5,13 +5,17 @@ main{
     min-height: 100vh;
 }
 
+.routers-shadow{
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px !important;
+}
+
 
 /* Backward Anchor */
 
 .anchor--backward-routing{
-    color:var(--VeryDarkBlue);
+    color:var(--VeryLightGrey);
     background-color: var(--White);
-    font-size: 14px;
+    font-size: 12px;
     transition: box-shadow 0.3s;
 }
 
@@ -39,8 +43,8 @@ main{
 /* Card Image */
 
 .card-image--cover{
-    min-height: 100% !important;
     object-fit: cover !important;
+    height: 350px !important;
 }
 
 
@@ -48,7 +52,7 @@ main{
 
 .card-title ,
 .card-body-details span ,
-.border-countries-routers a ,
+.border-countries-routers a,
 .card-body-details li {
     font-size: 14px;
     font-family: sans-serif;
@@ -58,23 +62,45 @@ main{
 }
 
 .card-body-details span{
-    color:var(--DarkGrey);
+    color:var(--VeryLightGrey);
 }
 
 .border-countries h5{
-    font-size: 15px;
+    font-size: 16px;
+}
+
+.border-countries-routers {
+    --bs-gutter-x: 0rem;
+}
+
+.border-countries-routers li {
+    background-color: var(--White);
+    line-height: 14px;
+    transition: box-shadow 0.3s !important;
 }
 
 .border-countries-routers a {
-    color:var(--VeryDarkBlue);
-    background-color: var(--White);
+    color:var(--VeryLightGrey);
     font-size: 14px;
+    padding:6px 0px;
     font-family: sans-serif;
-    transition: box-shadow 0.3s;
 }
 
-.border-countries-routers a:hover{
+.border-countries-routers li:hover{
     box-shadow: none !important;
+}
+
+
+@media screen and (min-width:765px){
+    .border-countries-routers a {
+        font-size: 12px;
+    }
+    .border-countries{
+        width:95%;
+    }
+    .border-countries h5{
+        font-size: 14px;
+    }
 }
 
 
