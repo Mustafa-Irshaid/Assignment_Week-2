@@ -33,30 +33,69 @@ body > input[type="checkbox"] {
 
 
 .dark-mode-btn:before {         /* Replacing it with the moon icon */
-    content: '\f186';
+    content: '\f185';
     font-family: "Font Awesome 5 Free";
     font-weight: 300;
-    font-size: 16px;
+    display:inline-block;
+    font-size: 16px; 
+    transition: content 0.2s ease-in-out;
+    padding:1px;
+}
+
+.dark-mode-btn:checked::before { 
+    content:'\f186';
+    animation: rotate-forward 0.5s ease-in-out;
+}
+
+.dark-mode-btn:not(:checked)::before {
+    animation: rotate-backward 0.5s ease-in-out;
+}
+
+@keyframes rotate-forward {
+
+    0%{
+        transform: rotate(0deg);
+    }
+
+    100%{
+        transform: rotate(360deg);
+    }
     
 }
 
-.dark-mode-btn:after {
-    content: 'Dark Mode';
+@keyframes rotate-backward {
+
+    0%{
+        transform: rotate(360deg);
+    }
+
+    100%{
+        transform: rotate(0deg);
+    }
+    
+}
+
+.dark-mode-btn:after{
+    content: 'Light Mode';
     font-family: sans-serif;
     font-weight: 300;
     padding-left:5px;
     font-size: 16px;
-    
+}
+
+.dark-mode-btn:checked::after {
+    content:'Dark Mode'
 }
 
 
 
+
+
 .dark-mode-btn:checked ,      /* if darkmode btn is checked */
-.dark-mode-btn:checked ~ * 
+.dark-mode-btn:checked ~ *
 {
     --White:#2b3945;        /* Dark Mode Colors */
     --VeryDarkBlue:#ececec;
     --LightGrey : #202c37;
     --VeryLightGrey : #cfcbcb;
-    
 }
