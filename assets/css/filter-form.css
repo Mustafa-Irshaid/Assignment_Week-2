@@ -6,18 +6,31 @@
 
 .form-section .search-input i{
     position: absolute;
+    color:var(--VeryLightGrey);
     top:50%;
-    left:30px;
+    left:130px;
     transform: translate(-50%,-50%);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
-.form-section .search-input button{
-    background-color: var(--White);
+.form-section .search-input i::after{
+    content:"Search for a country...";
+    font-family: sans-serif;
+    font-weight:300;
+    padding-left: 35px;
 }
+
 
 .form-section .search-input button::placeholder {
-    color: var(--VeryDarkBlue);
+    padding-left: 150px;
+    color: var(--VeryLightGrey);
     font-family: sans-serif;
+}
+
+.form-section .search-input input[type="search"]:focus ~ i::after {
+    color:transparent;
 }
 
 .form-section .search-input{
@@ -26,6 +39,8 @@
 }
 
 .form-section .search-input input[type="search"]{
+    position: relative;
+    z-index:0;
     min-height: 3rem;
     border-color: transparent;
     border-radius: 7px;
@@ -33,15 +48,17 @@
     background-color: var(--White);
 }
 
+
 /* Dropdown Filter */
 
 .form-section .dropdown{
     background-color: var(--White);
+    width:60%;
     
 }
 
 .form-section .dropdown .btn{
-    color: var(--VeryDarkBlue);
+    color: var(--VeryLightGrey);
     transition: none;
 }
 
@@ -52,7 +69,7 @@
     width: 10px;
     font-weight: 600;
     top: 50%;
-    right: 5%;
+    right: 10%;
     transform: translateY(-50%);
     pointer-events: none;
     border:none;
@@ -64,7 +81,7 @@
 }
 
 .form-section .dropdown .dropdown-menu li button{
-    color:var(--VeryDarkBlue);
+    color:var(--VeryLightGrey);
     transition: linear;
 }
 
@@ -77,10 +94,24 @@
 
 @media only screen and (min-width:768px) {
     .form-section .dropdown{
-        width:20% !important;
+        max-width:22% !important;
+    }
+
+    .form-section .dropdown .btn{
+        padding-left:10% !important; 
     }
 
     .form-section .search-input{
         width:50% !important;
+    }
+
+    .form-section .dropdown .btn::after{
+        right: 10%;
+    }
+}
+
+@media only screen and (min-width:1400px) {
+    .form-section .dropdown{
+        width:15% !important;
     }
 }

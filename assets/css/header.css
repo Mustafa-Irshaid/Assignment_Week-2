@@ -1,3 +1,9 @@
+/* public */
+
+h5{
+    font-size: 16px;
+}
+
 /* header */
 
 header{
@@ -47,7 +53,7 @@ body > input[type="checkbox"] {
 .dark-mode-btn:checked ~ * 
 {
     --White:#2b3945;        /* Dark Mode Colors */
-    --VeryDarkBlue:#ffffff;
+    --VeryDarkBlue:#ececec;
     --LightGrey : #202c37;
     --VeryLightGrey : #cfcbcb;
     

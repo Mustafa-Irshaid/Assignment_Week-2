@@ -8,12 +8,14 @@
     color:var(--VeryDarkBlue);
     background-color: var(transparent);
     font-family: sans-serif;
+    border:none !important;
     transition: background-color 0.2s linear;
 }
 
 body{
     margin:0;
     padding:0;
+   
 }
 
 :root{
@@ -23,7 +25,9 @@ body{
     --LightGrey:#fafafa;
     --VeryLightGrey : #111517;
     --White:#ffffff;
+    --bs-body-bg: transparent;
     --CentralizedContainerWidth:90%;
+    --HeaderHeight:
 }
 
 .centralized-container{
