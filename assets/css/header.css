@@ -14,7 +14,7 @@ header h1{
 
 body > input[type="checkbox"] {
     position:absolute;
-    right: 5%;
+    right:calc((100% - var(--CentralizedContainerWidth)) /2) ;
     top: 24px;
     z-index: 3;
     appearance: none;

@@ -23,10 +23,11 @@ body{
     --LightGrey:#fafafa;
     --VeryLightGrey : #111517;
     --White:#ffffff;
+    --CentralizedContainerWidth:90%;
 }
 
 .centralized-container{
-    width:90%;
+    width:var(--CentralizedContainerWidth);
 }
 
 ul{
