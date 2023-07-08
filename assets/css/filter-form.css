@@ -1,12 +1,12 @@
 .form-section {
-  background-color: var(--LightGrey);
+  background-color: var(--bg-WallPaperGrey);
 }
 
 /* Search input */
 
 .form-section .search-input i {
   position: absolute;
-  color: var(--VeryLightGrey);
+  color: var(--color-DarkCoolGrey-info);
   top: 50%;
   left: 130px;
   transform: translate(-50%, -50%);
@@ -24,7 +24,7 @@
 
 .form-section .search-input button::placeholder {
   padding-left: 150px;
-  color: var(--VeryLightGrey);
+  color: var(--color-DarkCoolGrey-info);
   font-family: sans-serif;
 }
 
@@ -43,17 +43,17 @@
   min-height: 3rem;
   border-color: transparent;
   border-radius: 7px;
-  background-color: var(--White);
+  background-color: var(--bg-White-element);
 }
 
 /* Dropdown Filter */
 
 .form-section .dropdown {
-  background-color: var(--White);
+  background-color: var(--bg-White-element);
 }
 
 .form-section .dropdown .btn {
-  color: var(--VeryLightGrey);
+  color: var(--color-DarkCoolGrey-info);
   transition: none;
 }
 
@@ -71,15 +71,15 @@
 }
 
 .form-section .dropdown .dropdown-menu {
-  background-color: var(--White);
+  background-color: var(--bg-White-element);
 }
 
 .form-section .dropdown .dropdown-menu li button {
-  color: var(--VeryLightGrey);
+  color: var(--color-DarkCoolGrey-info);
   transition: linear;
 }
 
 .form-section .dropdown .dropdown-menu li button:hover {
-  background-color: var(--VeryDarkBlue) !important;
-  color: var(--White);
+  background-color: var(--color-LoyalBlue) !important;
+  color: var(--bg-White-element);
 }

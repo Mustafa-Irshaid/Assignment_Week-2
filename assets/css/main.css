@@ -5,7 +5,7 @@
 /* Public */
 
 * {
-  color: var(--VeryDarkBlue);
+  color: var(--color-LoyalBlue);
   background-color: var(transparent);
   font-family: sans-serif;
   border: none !important;
@@ -19,11 +19,18 @@ body {
 
 :root {
   /* Light Mode Colors */
-  --VeryDarkBlue: #111517;
-  --DarkGrey: #858585;
-  --LightGrey: #fafafa;
-  --VeryLightGrey: #111517;
-  --White: #ffffff;
+  --bg-WallPaperGrey: #fafafa;
+  --bg-White-element: #ffffff;
+  --color-LoyalBlue: #111517;
+  --color-DarkCoolGrey-info: #111517;
+
+  /* Dark Mode Colors */
+  --bg-SpaceBlue: #202c37;
+  --bg-CoolBlue-element: #2b3945;
+  --color-LoyalWhite: #ececec;
+  --color-LightCoolGrey-info: #cfcbcb;
+  
+  /* public */
   --bs-body-bg: transparent;
   --CentralizedContainerWidth: 90%;
 }

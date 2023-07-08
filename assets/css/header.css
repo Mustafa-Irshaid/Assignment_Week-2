@@ -9,7 +9,7 @@ h5 {
 header {
   position: relative;
   z-index: 1;
-  background-color: var(--White);
+  background-color: var(--bg-White-element);
 }
 
 header h1 {
@@ -26,7 +26,7 @@ body > input[type="checkbox"] {
   z-index: 3;
   appearance: none;
   cursor: pointer;
-  color: var(--VeryDarkBlue);
+  color: var(--color-LoyalBlue);
 }
 
 .dark-mode-btn:before {
@@ -85,8 +85,8 @@ body > input[type="checkbox"] {
 
 .dark-mode-btn:checked ,      /* if darkmode btn is checked */
 .dark-mode-btn:checked ~ * {
-  --White: #2b3945; /* Dark Mode Colors */
-  --VeryDarkBlue: #ececec;
-  --LightGrey: #202c37;
-  --VeryLightGrey: #cfcbcb;
+  --bg-White-element: var(--bg-CoolBlue-element); /* Dark Mode Colors */
+  --bg-WallPaperGrey: var(--bg-SpaceBlue);
+  --color-DarkCoolGrey-info: var(--color-LightCoolGrey-info);
+  --color-LoyalBlue: var(--color-LoyalWhite);
 }

@@ -1,7 +1,7 @@
 /* main */
 
 main {
-  background-color: var(--LightGrey);
+  background-color: var(--bg-WallPaperGrey);
   min-height: 100vh;
 }
 
@@ -12,8 +12,8 @@ main {
 /* Backward Anchor */
 
 .anchor--backward-routing {
-  color: var(--VeryLightGrey);
-  background-color: var(--White);
+  color: var(--color-DarkCoolGrey-info);
+  background-color: var(--bg-White-element);
   font-size: 12px;
   transition: box-shadow 0.3s;
 }
@@ -59,7 +59,7 @@ main {
 }
 
 .card-body-details span {
-  color: var(--VeryLightGrey);
+  color: var(--color-DarkCoolGrey-info);
 }
 
 .border-countries h5 {
@@ -71,13 +71,13 @@ main {
 }
 
 .border-countries-routers li {
-  background-color: var(--White);
+  background-color: var(--bg-White-element);
   line-height: 14px;
   transition: box-shadow 0.3s !important;
 }
 
 .border-countries-routers a {
-  color: var(--VeryLightGrey);
+  color: var(--color-DarkCoolGrey-info);
   font-size: 14px;
   padding: 6px 0px;
   font-family: sans-serif;
