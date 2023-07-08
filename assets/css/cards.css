@@ -1,3 +1,7 @@
+.card-section {
+  min-height: calc(100vh - 271px);
+}
+
 .card-section h5 {
   font-weight: 600;
   font-family: sans-serif;

@@ -42,6 +42,8 @@ body > input[type="checkbox"] {
 
 .dark-mode-btn:checked::before {
   content: "\f186";
+  font-weight: 800;
+  transform: rotate(-25deg);
   animation: rotate-forward 0.5s ease-in-out;
 }
 
@@ -51,11 +53,11 @@ body > input[type="checkbox"] {
 
 @keyframes rotate-forward {
   0% {
-    transform: rotate(0deg);
+    transform: rotate(-25deg);
   }
 
   100% {
-    transform: rotate(360deg);
+    transform: rotate(335deg);
   }
 }
 
