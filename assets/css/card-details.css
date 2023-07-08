@@ -11,18 +11,18 @@ main {
 
 /* Backward Anchor */
 
-.anchor--backward-routing {
+.back-button {
   color: var(--color-DarkCoolGrey-info);
   background-color: var(--bg-White-element);
   font-size: 12px;
   transition: box-shadow 0.3s;
 }
 
-.anchor--backward-routing:hover {
+.back-button:hover {
   box-shadow: transparent 0 0 0 !important;
 }
 
-.anchor--backward-routing::before {
+.back-button::before {
   content: "\f177";
   font-family: "Font Awesome 5 Free";
   font-weight: 600;
@@ -33,7 +33,7 @@ main {
   transition: left 0.3s;
 }
 
-.anchor--backward-routing:hover::before {
+.back-button:hover::before {
   left: 25%;
   box-shadow: transparent 0 0 0 !important;
 }
@@ -66,29 +66,29 @@ main {
   font-size: 16px;
 }
 
-.border-countries-routers {
+.border-countries-links {
   --bs-gutter-x: 0rem;
 }
 
-.border-countries-routers li {
+.border-countries-links li {
   background-color: var(--bg-White-element);
   line-height: 14px;
   transition: box-shadow 0.3s !important;
 }
 
-.border-countries-routers a {
+.border-countries-links a {
   color: var(--color-DarkCoolGrey-info);
   font-size: 14px;
   padding: 6px 0px;
   font-family: sans-serif;
 }
 
-.border-countries-routers li:hover {
+.border-countries-links li:hover {
   box-shadow: none !important;
 }
 
 @media screen and (min-width: 765px) {
-  .border-countries-routers a {
+  .border-countries-links a {
     font-size: 12px;
   }
   .border-countries {
