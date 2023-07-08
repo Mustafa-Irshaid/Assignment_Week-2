@@ -1,51 +1,45 @@
 /* Importing Sans-Serif Font from google fonts */
 
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,300;0,600;1,800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,300;0,600;1,800&display=swap");
 
 /* Public */
 
-*{
-    color:var(--VeryDarkBlue);
-    background-color: var(transparent);
-    font-family: sans-serif;
-    border:none !important;
-    transition: background-color 0.2s linear;
+* {
+  color: var(--VeryDarkBlue);
+  background-color: var(transparent);
+  font-family: sans-serif;
+  border: none !important;
+  transition: background-color 0.2s linear;
 }
 
-body{
-    margin:0;
-    padding:0;
-   
+body {
+  margin: 0;
+  padding: 0;
 }
 
-:root{
-    /* Light Mode Colors */
-    --VeryDarkBlue:#111517;
-    --DarkGrey:#858585;      
-    --LightGrey:#fafafa;
-    --VeryLightGrey : #111517;
-    --White:#ffffff;
-    --bs-body-bg: transparent;
-    --CentralizedContainerWidth:90%;
+:root {
+  /* Light Mode Colors */
+  --VeryDarkBlue: #111517;
+  --DarkGrey: #858585;
+  --LightGrey: #fafafa;
+  --VeryLightGrey: #111517;
+  --White: #ffffff;
+  --bs-body-bg: transparent;
+  --CentralizedContainerWidth: 90%;
 }
 
-.centralized-container{
-    width:var(--CentralizedContainerWidth);
+.centralized-container {
+  width: var(--CentralizedContainerWidth);
 }
 
-ul{
-    list-style-type: none;
+ul {
+  list-style-type: none;
 }
 
-a{
-    text-decoration: none;
+a {
+  text-decoration: none;
 }
 
-.shadow-sm{
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px!important;
+.shadow-sm {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px !important;
 }
-
-
-
-
-

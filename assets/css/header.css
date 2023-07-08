@@ -1,101 +1,90 @@
 /* public */
 
-h5{
-    font-size: 16px;
+h5 {
+  font-size: 16px;
 }
 
 /* header */
 
-header{
-    position: relative;
-    z-index: 1;
-    background-color: var(--White);
+header {
+  position: relative;
+  z-index: 1;
+  background-color: var(--White);
 }
 
-header h1{
-    font-weight: 600;
-    font-size: 1.2rem;
+header h1 {
+  font-weight: 600;
+  font-size: 1.2rem;
 }
-
 
 /* Dark Mode */
 
 body > input[type="checkbox"] {
-    position:absolute;
-    right:calc((100% - var(--CentralizedContainerWidth)) /2) ;
-    top: 24px;
-    z-index: 3;
-    appearance: none;
-    cursor: pointer;
-    color:var(--VeryDarkBlue);   
+  position: absolute;
+  right: calc((100% - var(--CentralizedContainerWidth)) / 2);
+  top: 24px;
+  z-index: 3;
+  appearance: none;
+  cursor: pointer;
+  color: var(--VeryDarkBlue);
 }
 
-
-
-.dark-mode-btn:before {         /* Replacing it with the moon icon */
-    content: '\f185';
-    font-family: "Font Awesome 5 Free";
-    font-weight: 300;
-    display:inline-block;
-    font-size: 16px; 
-    transition: content 0.2s ease-in-out;
-    padding:1px;
+.dark-mode-btn:before {
+  /* Replacing it with the moon icon */
+  content: "\f185";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 300;
+  display: inline-block;
+  font-size: 16px;
+  transition: content 0.2s ease-in-out;
+  padding: 1px;
 }
 
-.dark-mode-btn:checked::before { 
-    content:'\f186';
-    animation: rotate-forward 0.5s ease-in-out;
+.dark-mode-btn:checked::before {
+  content: "\f186";
+  animation: rotate-forward 0.5s ease-in-out;
 }
 
 .dark-mode-btn:not(:checked)::before {
-    animation: rotate-backward 0.5s ease-in-out;
+  animation: rotate-backward 0.5s ease-in-out;
 }
 
 @keyframes rotate-forward {
+  0% {
+    transform: rotate(0deg);
+  }
 
-    0%{
-        transform: rotate(0deg);
-    }
-
-    100%{
-        transform: rotate(360deg);
-    }
-    
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes rotate-backward {
+  0% {
+    transform: rotate(360deg);
+  }
 
-    0%{
-        transform: rotate(360deg);
-    }
-
-    100%{
-        transform: rotate(0deg);
-    }
-    
+  100% {
+    transform: rotate(0deg);
+  }
 }
 
-.dark-mode-btn:after{
-    content: 'Light Mode';
-    font-family: sans-serif;
-    font-weight: 300;
-    padding-left:5px;
-    font-size: 16px;
+.dark-mode-btn:after {
+  content: "Light Mode";
+  font-family: sans-serif;
+  font-weight: 300;
+  padding-left: 5px;
+  font-size: 16px;
 }
 
 .dark-mode-btn:checked::after {
-    content:'Dark Mode'
+  content: "Dark Mode";
 }
 
-
-
-
-
 .dark-mode-btn:checked ,      /* if darkmode btn is checked */
-.dark-mode-btn:checked ~ *
-{
-    --White:#2b3945;        /* Dark Mode Colors */
-    --VeryDarkBlue:#ececec;
-    --LightGrey : #202c37;
-    --VeryLightGrey : #cfcbcb;
+.dark-mode-btn:checked ~ * {
+  --White: #2b3945; /* Dark Mode Colors */
+  --VeryDarkBlue: #ececec;
+  --LightGrey: #202c37;
+  --VeryLightGrey: #cfcbcb;
 }

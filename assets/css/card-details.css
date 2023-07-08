@@ -1,107 +1,100 @@
 /* main */
 
-main{
-    background-color: var(--LightGrey);
-    min-height: 100vh;
+main {
+  background-color: var(--LightGrey);
+  min-height: 100vh;
 }
 
-.routers-shadow{
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px !important;
+.routers-shadow {
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px !important;
 }
-
 
 /* Backward Anchor */
 
-.anchor--backward-routing{
-    color:var(--VeryLightGrey);
-    background-color: var(--White);
-    font-size: 12px;
-    transition: box-shadow 0.3s;
+.anchor--backward-routing {
+  color: var(--VeryLightGrey);
+  background-color: var(--White);
+  font-size: 12px;
+  transition: box-shadow 0.3s;
 }
 
-.anchor--backward-routing:hover{
-    box-shadow:transparent 0 0 0 !important;
+.anchor--backward-routing:hover {
+  box-shadow: transparent 0 0 0 !important;
 }
 
-.anchor--backward-routing::before{
-    content:'\f177';
-    font-family: "Font Awesome 5 Free";
-    font-weight: 600;
-    position: absolute;
-    left:30%;
-    top:50%;
-    transform: translate(-50%,-50%);
-    transition: left 0.3s;
+.anchor--backward-routing::before {
+  content: "\f177";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 600;
+  position: absolute;
+  left: 30%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: left 0.3s;
 }
 
-.anchor--backward-routing:hover::before{
-    left:25%;
-    box-shadow:transparent 0 0 0 !important;
+.anchor--backward-routing:hover::before {
+  left: 25%;
+  box-shadow: transparent 0 0 0 !important;
 }
-
 
 /* Card Image */
 
-.card-image--cover{
-    object-fit: cover !important;
-    height: 350px !important;
+.card-image--cover {
+  object-fit: cover !important;
+  height: 350px !important;
 }
-
 
 /* Card Body - Card Title , Details , Border Countries */
 
-.card-title ,
-.card-body-details span ,
+.card-title,
+.card-body-details span,
 .border-countries-routers a,
 .card-body-details li {
-    font-size: 14px;
-    font-family: sans-serif;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;  
+  font-size: 14px;
+  font-family: sans-serif;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
-.card-body-details span{
-    color:var(--VeryLightGrey);
+.card-body-details span {
+  color: var(--VeryLightGrey);
 }
 
-.border-countries h5{
-    font-size: 16px;
+.border-countries h5 {
+  font-size: 16px;
 }
 
 .border-countries-routers {
-    --bs-gutter-x: 0rem;
+  --bs-gutter-x: 0rem;
 }
 
 .border-countries-routers li {
-    background-color: var(--White);
-    line-height: 14px;
-    transition: box-shadow 0.3s !important;
+  background-color: var(--White);
+  line-height: 14px;
+  transition: box-shadow 0.3s !important;
 }
 
 .border-countries-routers a {
-    color:var(--VeryLightGrey);
+  color: var(--VeryLightGrey);
+  font-size: 14px;
+  padding: 6px 0px;
+  font-family: sans-serif;
+}
+
+.border-countries-routers li:hover {
+  box-shadow: none !important;
+}
+
+@media screen and (min-width: 765px) {
+  .border-countries-routers a {
+    font-size: 12px;
+  }
+  .border-countries {
+    width: 95%;
+  }
+  .border-countries h5 {
     font-size: 14px;
-    padding:6px 0px;
-    font-family: sans-serif;
+  }
 }
-
-.border-countries-routers li:hover{
-    box-shadow: none !important;
-}
-
-
-@media screen and (min-width:765px){
-    .border-countries-routers a {
-        font-size: 12px;
-    }
-    .border-countries{
-        width:95%;
-    }
-    .border-countries h5{
-        font-size: 14px;
-    }
-}
-
-
-
