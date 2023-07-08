@@ -43,7 +43,6 @@
   min-height: 3rem;
   border-color: transparent;
   border-radius: 7px;
-  width: 100%;
   background-color: var(--White);
 }
 
@@ -51,7 +50,6 @@
 
 .form-section .dropdown {
   background-color: var(--White);
-  width: 60%;
 }
 
 .form-section .dropdown .btn {
@@ -84,30 +82,4 @@
 .form-section .dropdown .dropdown-menu li button:hover {
   background-color: var(--VeryDarkBlue) !important;
   color: var(--White);
-}
-
-/* Media Query */
-
-@media only screen and (min-width: 768px) {
-  .form-section .dropdown {
-    max-width: 22% !important;
-  }
-
-  .form-section .dropdown .btn {
-    padding-left: 10% !important;
-  }
-
-  .form-section .search-input {
-    width: 50% !important;
-  }
-
-  .form-section .dropdown .btn::after {
-    right: 10%;
-  }
-}
-
-@media only screen and (min-width: 1400px) {
-  .form-section .dropdown {
-    width: 15% !important;
-  }
 }
