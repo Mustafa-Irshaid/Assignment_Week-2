@@ -1,0 +1,85 @@
+.form-section {
+  background-color: var(--bg-WallPaperGrey);
+}
+
+/* Search input */
+
+.form-section .search-input i {
+  position: absolute;
+  color: var(--color-DarkCoolGrey-info);
+  top: 50%;
+  left: 130px;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.form-section .search-input i::after {
+  content: "Search for a country...";
+  font-family: sans-serif;
+  font-weight: 300;
+  padding-left: 35px;
+}
+
+.form-section .search-input button::placeholder {
+  padding-left: 150px;
+  color: var(--color-DarkCoolGrey-info);
+  font-family: sans-serif;
+}
+
+.form-section .search-input input[type="search"]:focus ~ i::after {
+  color: transparent;
+}
+
+.form-section .search-input {
+  margin: 1.5rem 0rem;
+  min-width: 37%;
+}
+
+.form-section .search-input input[type="search"] {
+  position: relative;
+  z-index: 0;
+  min-height: 3rem;
+  border-color: transparent;
+  border-radius: 7px;
+  background-color: var(--bg-White-element);
+}
+
+/* Dropdown Filter */
+
+.form-section .dropdown {
+  background-color: var(--bg-White-element);
+}
+
+.form-section .dropdown .btn {
+  color: var(--color-DarkCoolGrey-info);
+  transition: none;
+}
+
+.form-section .dropdown .btn::after {
+  position: absolute;
+  content: "\f107";
+  font-family: "Font Awesome 5 Free";
+  width: 10px;
+  font-weight: 600;
+  top: 50%;
+  right: 10%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  border: none;
+}
+
+.form-section .dropdown .dropdown-menu {
+  background-color: var(--bg-White-element);
+}
+
+.form-section .dropdown .dropdown-menu li button {
+  color: var(--color-DarkCoolGrey-info);
+  transition: linear;
+}
+
+.form-section .dropdown .dropdown-menu li button:hover {
+  background-color: var(--color-LoyalBlue) !important;
+  color: var(--bg-White-element);
+}
