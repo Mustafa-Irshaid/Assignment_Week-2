@@ -21,7 +21,7 @@ const isDarkModeCheckedInLocalStorage = () => {
 };
 
 darkModeBtn.addEventListener("change", () => {
-  localStorage.setItem("darkModeState", darkModeBtn.checked ,cardDetailsPageBtn);
+  localStorage.setItem("darkModeState", darkModeBtn.checked );
 });
 
 // Handle Search bar Listener on keyup
@@ -30,7 +30,7 @@ searchInput.addEventListener("keyup", (event) => {
   event.preventDefault();
   clearTimeout(timeoutId);
   timeoutId = setTimeout(async () => {
-    displayHTMLContent(await fetchData(event.target.value), cardsContent ,cardDetailsPageBtn);
+    displayHTMLContent(await fetchData(event.target.value), cardsContent );
   }, 200);
 });
 
@@ -53,5 +53,5 @@ window.addEventListener("load", async (event) => {
   isDarkModeCheckedInLocalStorage();
 
   // calling API to fetch all of the data onload
-  displayHTMLContent(await fetchData(""), cardsContent , cardDetailsPageBtn);
+  displayHTMLContent(await fetchData(""), cardsContent );
 });
