@@ -8,22 +8,16 @@
   position: absolute;
   color: var(--color-DarkCoolGrey-info);
   top: 50%;
-  left: 130px;
+  left: 35px;
   transform: translate(-50%, -50%);
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
 
-.form-section .search-input i::after {
-  content: "Search for a country...";
-  font-family: sans-serif;
-  font-weight: 300;
-  padding-left: 35px;
-}
 
-.form-section .search-input button::placeholder {
-  padding-left: 150px;
+
+.form-section .search-input input::placeholder {
   color: var(--color-DarkCoolGrey-info);
   font-family: sans-serif;
 }
