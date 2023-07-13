@@ -9,7 +9,6 @@
   background-color: var(transparent);
   font-family: sans-serif;
   border: none !important;
-  transition: background-color 0.2s linear;
 }
 
 body {
