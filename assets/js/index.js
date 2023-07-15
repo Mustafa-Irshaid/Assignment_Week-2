@@ -1,10 +1,10 @@
-import { fetchData, allData } from "../utils/fetchData.js";
+import { getAllCountries, searchForCountry } from "../api/countryServices.js";
 import { displayHTMLContent } from "../utils/displayCardsData.js";
 import { filterData } from "../utils/filterData.js";
 
-const searchInput = document.getElementById("searchInput");
-const dropdownMenu = document.getElementById("dropdownMenu");
-const dropdownItemBtns = document.querySelectorAll(".dropdown-item");
+const searchForCountryInput = document.getElementById("searchForCountryInput");
+const regionsDropdownMenu = document.getElementById("regionsDropdownMenu");
+const regionsDropdownButtons = document.querySelectorAll(".regions-dropdown--btns");
 const cardsContent = document.getElementById("cardsContent");
 const darkModeBtn = document.getElementById("darkMode");
 
@@ -26,21 +26,21 @@ darkModeBtn.addEventListener("change", () => {
 
 // Handle Search bar Listener on keyup
 
-searchInput.addEventListener("keyup", (event) => {
+searchForCountryInput.addEventListener("keyup", (event) => {
   event.preventDefault();
   clearTimeout(timeoutId);
   timeoutId = setTimeout(async () => {
-    displayHTMLContent(await fetchData(event.target.value), cardsContent );
+    displayHTMLContent(await searchForCountry(event.target.value), cardsContent );
   }, 200);
 });
 
 // Filter on dropdown list
 
-dropdownItemBtns.forEach((button) => {
+regionsDropdownButtons.forEach((button) => {
   button.addEventListener("click", async (event) => {
-    dropdownMenu.innerHTML = button.innerHTML;
+    regionsDropdownMenu.innerHTML = button.innerHTML;
     displayHTMLContent(
-      await filterData(button.innerHTML, searchInput.value, allData),
+      await filterData(button.innerHTML, searchForCountryInput.value, allData),
       cardsContent
     );
   });
@@ -53,5 +53,5 @@ window.addEventListener("load", async (event) => {
   isDarkModeCheckedInLocalStorage();
 
   // calling API to fetch all of the data onload
-  displayHTMLContent(await fetchData(""), cardsContent );
+  displayHTMLContent(await getAllCountries(), cardsContent );
 });

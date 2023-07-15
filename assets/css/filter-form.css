@@ -64,16 +64,16 @@
   border: none;
 }
 
-.form-section .dropdown .dropdown-menu {
+.form-section .dropdown .regions-dropdown--btns {
   background-color: var(--bg-White-element);
 }
 
-.form-section .dropdown .dropdown-menu li button {
+.form-section .dropdown .regions-dropdown--btns li button {
   color: var(--color-DarkCoolGrey-info);
   transition: linear;
 }
 
-.form-section .dropdown .dropdown-menu li button:hover {
+.form-section .dropdown .regions-dropdown--btns li button:hover {
   background-color: var(--color-LoyalBlue) !important;
   color: var(--bg-White-element);
 }
