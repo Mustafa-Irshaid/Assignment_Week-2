@@ -1,10 +1,10 @@
-import { getAllCountries, searchForCountry } from "../api/countryServices.js";
+import { getAllCountries, searchForCountry, allData } from "../api/countryServices.js";
 import { displayHTMLContent } from "../utils/displayCardsData.js";
 import { filterData } from "../utils/filterData.js";
 
 const searchForCountryInput = document.getElementById("searchForCountryInput");
-const regionsDropdownMenu = document.getElementById("regionsDropdownMenu");
-const regionsDropdownButtons = document.querySelectorAll(".regions-dropdown--btns");
+const regionsDropdownMenu = document.getElementById("dropdown-menu");
+const regionsDropdownButtons = document.querySelectorAll(".dropdown-item");
 const cardsContent = document.getElementById("cardsContent");
 const darkModeBtn = document.getElementById("darkMode");
 
