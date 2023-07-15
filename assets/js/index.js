@@ -27,7 +27,6 @@ darkModeBtn.addEventListener("change", () => {
 // Handle Search bar Listener on keyup
 
 searchForCountryInput.addEventListener("keyup", (event) => {
-  event.preventDefault();
   clearTimeout(timeoutId);
   timeoutId = setTimeout(async () => {
     displayHTMLContent(await searchForCountry(event.target.value), cardsContent );
