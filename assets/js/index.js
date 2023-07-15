@@ -1,5 +1,5 @@
 import { fetchData, allData } from "../utils/fetchData.js";
-import { displayHTMLContent } from "../utils/displayData.js";
+import { displayHTMLContent } from "../utils/displayCardsData.js";
 import { filterData } from "../utils/filterData.js";
 
 const searchInput = document.getElementById("searchInput");
