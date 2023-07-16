@@ -1,0 +1,25 @@
+/* Loader */
+
+.loader {
+  background: var(--bg-White-element);
+  background-image: linear-gradient(
+    90deg,
+    rgba(240, 236, 236, 0),
+    rgba(240, 236, 236, 0.5) 50%,
+    rgba(240, 236, 236, 0) 100%
+  );
+  background-repeat: no-repeat;
+  background-size: 20px 100%;
+  background-position: left -40px top 0;
+  animation: loading 1s ease infinite;
+}
+
+@keyframes loading {
+  to {
+    background-position: right -40px top 0;
+  }
+}
+
+.image-loader--height {
+  min-height: 300px;
+}

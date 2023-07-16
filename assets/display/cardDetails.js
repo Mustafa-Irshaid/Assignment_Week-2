@@ -2,38 +2,70 @@ import { numberFormat } from "../utils/numberFormat.js";
 
 // Display HTML Content : Cards Content
 
-export const displayCardDetailsHTMLContent = (data, cardContent) => {
+export const displayCardDetailsHTMLContent = (
+  data,
+  cardContent,
+  cardDetailsLoaderCSSLink
+) => {
+  // Check if the <link> Loader element exists
+  if (cardDetailsLoaderCSSLink) {
+    // Remove the <link> Loader from the document
+    cardDetailsLoaderCSSLink.remove();
+  }
+
   if (data.message == "Not Found" || data.length == 0) {
     cardContent.innerHTML = `<span>No results Found</span>`;
     return;
   }
 
   let innerHTMLData = ``;
-  let borderCountries = ``;
-  let cardImage = ``;
-  let cardBody = ``;
 
-  console.log(data[0].borders)
+  let content={
+    borderCountries:``,
+    cardImage:``,
+    cardBody:``,
+    currencies:``,
+    languages:``
+  }
 
-  if(typeof data[0].borders !== 'undefined'){
+  let currenciesArr=Object.values(data[0].currencies);
+
+  currenciesArr.forEach((val,index) =>{ 
+    content.currencies+=`${val.name}`
+
+    if(index != currenciesArr.length-1){
+      content.currencies+=' , '
+    }
+  });
+
+  let languagesArr=Object.values(data[0].languages);
+
+  languagesArr.forEach((val,index) =>{ 
+    content.languages+=`${val}`
+
+    if(index != languagesArr.length-1){
+      content.languages+=' , '
+    }
+  });
+
+  if (typeof data[0].borders !== "undefined") {
     data[0].borders.map((border) => {
-        borderCountries += `
+      content.borderCountries += `
         <li class="col-3 col-lg-3 px-0 shadow-sm rounded-2"><a class="d-inline-block rounded-1 w-100" href="#">${border}</a></li>
       `;
     });
+  } else {
+    content.borderCountries = `Not Found...`;
   }
-  else{
-    borderCountries = `Not Found...`
-  }
-  
 
-  cardImage = `<!-- Card Image -->
+
+  content.cardImage = `<!-- Card Image -->
 
   <div class="card-image col-md-5 p-0 overflow-hidden text-center me-3 shadow-sm">
       <img class="card-image--cover w-100" src="${data[0].flags.svg}" alt="image not found">
   </div>`;
 
-  cardBody = `
+  content.cardBody = `
   <!-- Card Body -->
 
   <div class="card-body col-md-5 d-flex flex-column justify-content-evenly">
@@ -62,9 +94,9 @@ export const displayCardDetailsHTMLContent = (data, cardContent) => {
                 data[0].tld[0]
               }</span></li>
               <li class="py-2">Currencies: <span>${
-                data[0].currencies
+                content.currencies
               }</span></li>
-              <li class="py-2">Languages: <span>${data[0].languages}</span></li>
+              <li class="py-2">Languages: <span>${content.languages}</span></li>
           </div>
       </ul>
 
@@ -73,7 +105,7 @@ export const displayCardDetailsHTMLContent = (data, cardContent) => {
       <aside class="border-countries d-flex flex-column flex-md-row justify-content-start align-items-md-center">
           <h5 class="m-0 me-2 d-inline-block">Border Countries:</h5>
           <ul class="border-countries-links col-md row gap-2 justify-content-between justify-content-md-start align-items-center p-0 my-4 text-center">
-              ${borderCountries}
+              ${content.borderCountries}
           </ul>
       </aside>
       
@@ -82,11 +114,9 @@ export const displayCardDetailsHTMLContent = (data, cardContent) => {
   <!-- Card Body -->
   `;
 
-  console.log(data[0].tld);
-
   // Card inner HTML information
 
-  innerHTMLData = cardImage + cardBody;
+  innerHTMLData = content.cardImage + content.cardBody;
 
   cardContent.innerHTML = innerHTMLData;
 };

@@ -15,7 +15,9 @@ export const displayCardsHTMLContent = (data, cardsContent) => {
 
   data.map((country, index) => {
     cardHTMLData += `<div class="col-10 col-md-5 col-lg-3 mb-5">
-    <a href="card-details.html?card=${country.name.official}" class="card card-hover--scale-down overflow-hidden shadow-sm border-0 rounded-2">
+    <a href="card-details.html?card=${
+      country.name.official
+    }" class="card card-hover--scale-down overflow-hidden shadow-sm border-0 rounded-2">
 
         <!-- Card Image -->
 
@@ -40,11 +42,7 @@ export const displayCardsHTMLContent = (data, cardsContent) => {
 </div>`;
   });
 
-  innerHTMLData += `<div class="row justify-content-center justify-content-md-between justify-content-lg-start m-0">`;
-
   innerHTMLData += cardHTMLData;
-
-  innerHTMLData += `</div>`;
 
   cardsContent.innerHTML = innerHTMLData;
 };
