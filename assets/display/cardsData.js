@@ -14,7 +14,7 @@ export const displayCardsHTMLContent = (data, cardsContent) => {
   // Card inner HTML information
 
   data.map((country, index) => {
-    cardHTMLData += `<div class="col-10 col-md-5 col-lg-3 mb-5">
+    cardHTMLData += `<div class="col-10 col-md-5 col-lg-4 mb-5">
     <a href="card-details.html?card=${
       country.name.official
     }" class="card card-hover--scale-down overflow-hidden shadow-sm border-0 rounded-2">

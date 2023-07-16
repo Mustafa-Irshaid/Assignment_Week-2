@@ -46,13 +46,6 @@
 }
 
 @media only screen and (min-width: 903px) {
-  .card-section .row :nth-child(4n + 1) {
-    padding-left: 0px;
-  }
-
-  .card-section .row :nth-child(4n + 4) {
-    padding-right: 0px;
-  }
 
   .card-section img {
     height: 200px;
