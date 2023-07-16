@@ -34,10 +34,6 @@ export const getAllCountries = async () => {
       referrerPolicy: "no-referrer",
     });
 
-    if (!response.ok) {
-      return [];
-    }
-
     const data = await response.json();
 
     // Set all of the data if does not exist in allData variable
@@ -81,11 +77,9 @@ export const searchForCountry = async (searchTerm) => {
       referrerPolicy: "no-referrer",
     });
 
-    if (!response.ok) {
-      return [];
-    }
-
     const data = await response.json();
+
+    currentData = data;
 
     // return Data
     return data;

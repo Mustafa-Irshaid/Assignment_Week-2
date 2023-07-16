@@ -42,7 +42,7 @@ main {
 
 .card-image--cover {
   object-fit: cover;
-  height: 350px;
+  height: 400px;
 }
 
 /* Card Body - Card Title , Details , Border Countries */

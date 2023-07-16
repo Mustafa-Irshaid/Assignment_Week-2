@@ -1,16 +1,21 @@
-import { numberFormat } from "./numberFormat.js";
+import { numberFormat } from "../utils/numberFormat.js";
 
 // Display HTML Content : Cards Content
 
-export const displayHTMLContent = (data, cardsContent) => {
+export const displayCardsHTMLContent = (data, cardsContent) => {
+  if (data.message == "Not Found" || data.length == 0) {
+    cardsContent.innerHTML = `<span>No results Found</span>`;
+    return;
+  }
+
   let innerHTMLData = ``;
   let cardHTMLData = ``;
 
   // Card inner HTML information
 
-  data.map( (country) => {
+  data.map((country, index) => {
     cardHTMLData += `<div class="col-10 col-md-5 col-lg-3 mb-5">
-    <a href="" class="card card-hover--scale-down overflow-hidden shadow-sm border-0 rounded-2">
+    <a href="card-details.html?card=${country.name.official}" class="card card-hover--scale-down overflow-hidden shadow-sm border-0 rounded-2">
 
         <!-- Card Image -->
 
