@@ -45,8 +45,14 @@
   color: var(--color-DarkCoolGrey-info);
 }
 
-@media only screen and (min-width: 903px) {
+/* Favourites */
 
+.favourites {
+  min-height: 70vh;
+  background-color: var(--bg-White-element);
+}
+
+@media only screen and (min-width: 903px) {
   .card-section img {
     height: 200px;
   }
