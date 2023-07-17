@@ -29,7 +29,7 @@ body {
   --bg-CoolBlue-element: #2b3945;
   --color-LoyalWhite: #ececec;
   --color-LightCoolGrey-info: #cfcbcb;
-  
+
   /* public */
   --bs-body-bg: transparent;
   --CentralizedContainerWidth: 90%;
@@ -50,7 +50,6 @@ a {
 .shadow-sm {
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px !important;
 }
-
 
 /* custom scrollbar */
 
@@ -73,5 +72,3 @@ a {
   background: var(--color-LightCoolGrey-info);
   border-radius: 100vw;
 }
-
-

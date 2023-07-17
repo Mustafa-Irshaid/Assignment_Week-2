@@ -15,8 +15,6 @@
   text-overflow: ellipsis;
 }
 
-
-
 .form-section .search-input input::placeholder {
   color: var(--color-DarkCoolGrey-info);
   font-family: sans-serif;

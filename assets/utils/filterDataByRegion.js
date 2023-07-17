@@ -1,12 +1,11 @@
 // Filtering based on dropDownMenu
 
 export const filterDataByRegion = (region, country, data) => {
-
   country = country.toLowerCase();
 
   let filteredByRegion = data;
 
-  if(region){
+  if (region) {
     filteredByRegion = filteredByRegion.filter((data) => {
       return data.region == region;
     });

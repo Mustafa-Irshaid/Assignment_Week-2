@@ -20,31 +20,31 @@ export const displayCardDetailsHTMLContent = (
 
   let innerHTMLData = ``;
 
-  let content={
-    borderCountries:``,
-    cardImage:``,
-    cardBody:``,
-    currencies:``,
-    languages:``
-  }
+  let content = {
+    borderCountries: ``,
+    cardImage: ``,
+    cardBody: ``,
+    currencies: ``,
+    languages: ``,
+  };
 
-  let currenciesArr=Object.values(data[0].currencies);
+  let currenciesArr = Object.values(data[0].currencies);
 
-  currenciesArr.forEach((val,index) =>{ 
-    content.currencies+=`${val.name}`
+  currenciesArr.forEach((val, index) => {
+    content.currencies += `${val.name}`;
 
-    if(index != currenciesArr.length-1){
-      content.currencies+=' , '
+    if (index != currenciesArr.length - 1) {
+      content.currencies += " , ";
     }
   });
 
-  let languagesArr=Object.values(data[0].languages);
+  let languagesArr = Object.values(data[0].languages);
 
-  languagesArr.forEach((val,index) =>{ 
-    content.languages+=`${val}`
+  languagesArr.forEach((val, index) => {
+    content.languages += `${val}`;
 
-    if(index != languagesArr.length-1){
-      content.languages+=' , '
+    if (index != languagesArr.length - 1) {
+      content.languages += " , ";
     }
   });
 
@@ -57,7 +57,6 @@ export const displayCardDetailsHTMLContent = (
   } else {
     content.borderCountries = `Not Found...`;
   }
-
 
   content.cardImage = `<!-- Card Image -->
 

@@ -24,18 +24,18 @@ darkModeBtn.addEventListener("change", () => {
 
 searchForCountryInput.addEventListener("keyup", (event) => {
   clearTimeout(timeoutId);
-  
+
   timeoutId = setTimeout(async () => {
+    let data = await searchForCountry(event.target.value);
 
-    let data = await searchForCountry(event.target.value)
-
-    if(!regionValue){
+    if (!regionValue) {
       displayCardsHTMLContent(data, cardsContent);
+    } else {
+      displayCardsHTMLContent(
+        await filterDataByRegion(regionValue, "", data),
+        cardsContent
+      );
     }
-    else{
-      displayCardsHTMLContent( await filterDataByRegion(regionValue,"", data) ,cardsContent)
-    }
-    
   }, 200);
 });
 
@@ -45,9 +45,13 @@ regionsDropdownButtons.forEach((button) => {
   button.addEventListener("click", async (event) => {
     regionsDropdownMenu.innerHTML = button.innerHTML;
     regionValue = button.value;
-    
+
     displayCardsHTMLContent(
-      await filterDataByRegion(regionValue, searchForCountryInput.value, allData),
+      await filterDataByRegion(
+        regionValue,
+        searchForCountryInput.value,
+        allData
+      ),
       cardsContent
     );
   });
