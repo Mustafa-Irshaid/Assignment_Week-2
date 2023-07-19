@@ -2,7 +2,11 @@ import { numberFormat } from "../utils/numberFormat.js";
 
 // Display HTML Content : Cards Content
 
-export const displayCardsHTMLContent = (data, cardsContent) => {
+export const displayCardsHTMLContent = (
+  data,
+  favouriteCountries,
+  cardsContent
+) => {
   if (data.message == "Not Found" || data.length == 0) {
     cardsContent.innerHTML = `<span>No results Found</span>`;
     return;

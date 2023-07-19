@@ -6,6 +6,7 @@ import {
 import { displayCardsHTMLContent } from "../display/cardsData.js";
 import { filterDataByRegion } from "../utils/filterDataByRegion.js";
 import { isDarkModeCheckedInLocalStorage } from "../utils/darkModeState.js";
+import { getFavouriteCountriesFromLocalStorage } from "../utils/getFromLocalStorage.js";
 
 const searchForCountryInput = document.getElementById("searchForCountryInput");
 const regionsDropdownMenu = document.getElementById("dropdown-menu");
@@ -64,5 +65,9 @@ window.addEventListener("load", async (event) => {
   isDarkModeCheckedInLocalStorage(darkModeBtn);
 
   // calling API to fetch all of the data onload
-  displayCardsHTMLContent(await getAllCountries(), cardsContent);
+  displayCardsHTMLContent(
+    await getAllCountries(),
+    await getFavouriteCountriesFromLocalStorage(),
+    cardsContent
+  );
 });
