@@ -1,4 +1,5 @@
 import { numberFormat } from "../utils/numberFormat.js";
+import { isKeyExistInObject } from "../utils/verifyKeyExistence.js";
 
 // Display HTML Content : Cards Content
 
@@ -40,7 +41,12 @@ export const displayCardsHTMLContent = (
             </ul>
           </div>
       </a>
-      <i class="fa-solid fa-star"></i>
+      ${
+        isKeyExistInObject(favouriteCountries, country.name.common)
+          ? `<i class="fa-solid fa-star color-favourite"></i>`
+          : `<i class="fa-solid fa-star"></i>`
+      }
+      
   </div>`;
   });
 

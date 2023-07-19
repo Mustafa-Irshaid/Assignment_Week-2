@@ -107,4 +107,8 @@
     font-size: 1.2rem;
     color: var(--color-LightCoolGrey-info);
   }
+
+  .color-favourite {
+    color: var(--color-favourite);
+  }
 }
