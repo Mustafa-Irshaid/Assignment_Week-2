@@ -6,7 +6,7 @@
 }
 
 .content{
-    max-height: calc(100vh - 370px);
+    min-height: calc(100vh - 370px);
     background-color: var(--bg-White-element);
 }
 
