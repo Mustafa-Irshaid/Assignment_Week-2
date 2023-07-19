@@ -1,0 +1,52 @@
+/* Favourites */
+
+.favourites {
+    max-height: calc(100vh - 280px);
+    background-color: var(--bg-White-element);
+}
+
+.content{
+    max-height: calc(100vh - 370px);
+    background-color: var(--bg-White-element);
+}
+
+.flag-content{
+    transition: background-color 0.2s;
+}
+
+.flag-content:hover{
+    cursor: pointer;
+    background-color: var(--bg-WallPaperGrey);
+}
+
+.favourites h5 {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-weight: 600;
+  font-family: sans-serif;
+  font-size: 1.3rem;
+  color: var(--color-LoyalBlue);
+}
+
+.favourites .delete-btn{
+    background-color: var(--bg-WallPaperGrey);
+    color: var(--color-LoyalBlue);
+    width: 25px;
+    height: 25px;
+    transition: transform 0.2s;
+}
+
+.favourites .delete-btn:hover{
+    transform: scale(1.2);
+}
+
+.favourites .delete-btn::after{
+    content:'\f00d';
+    font-family: "Font Awesome 5 Free";
+    font-weight: 600;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
