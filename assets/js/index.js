@@ -155,7 +155,9 @@ function deleteFavFlag(event) {
 
     const favTitle = favCard.querySelector("h5").innerText;
 
-    const card = cardsContent.querySelector(`#${favTitle}`);
+    const card = cardsContent.querySelector(
+      `#${favTitle.split(" ").join("-")}`
+    );
     updateCardStar(card.parentNode);
 
     deleteFavouriteCountryFromLocalStorage(favTitle);
@@ -164,11 +166,34 @@ function deleteFavFlag(event) {
   }
 }
 
+async function sendFavouriteCardToLocalStorage(event) {
+  const { tagName } = event.target;
+  console.log(tagName);
+
+  if (tagName === "I") {
+    const card = event.target.parentNode;
+    const flagTitle = card.querySelector("h5").innerHTML;
+    const flagSource = card.querySelector("img").getAttribute("src");
+
+    if (!setFavouriteCountryInLocalStorage(flagTitle, flagSource)) {
+      deleteFavouriteCountryFromLocalStorage(flagTitle);
+    }
+
+    updateCardStar(card);
+
+    displayFavouriteFlagsHTMLContent(
+      await getFavouriteCountriesFromLocalStorage(),
+      favouriteContent
+    );
+  }
+}
+
 const eventListenersForFavouriteCountriesDragAndDrop = () => {
   favouriteContent.addEventListener("drop", drop);
   favouriteContent.addEventListener("dragover", allowDrop);
   favouriteContent.addEventListener("click", deleteFavFlag);
   cardsContent.addEventListener("dragstart", drag);
+  cardsContent.addEventListener("click", sendFavouriteCardToLocalStorage);
 };
 
 // Window onload bring all of the data from API
