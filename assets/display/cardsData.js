@@ -22,7 +22,9 @@ export const displayCardsHTMLContent = (
     cardHTMLData += `<div class="col-10 col-md-4 mb-5 position-relative">
       <a aria-label="${index}" href="card-details.html?card=${
       country.name.official
-    }" class="card card-hover--scale-down overflow-hidden shadow-sm border-0 rounded-2" draggable="true">
+    }" class="card card-hover--scale-down overflow-hidden shadow-sm border-0 rounded-2" draggable="true" id=${
+      country.name.common
+    }>
 
           <!-- Card Image -->
           <img class="flag-img img-fluid w-100" src="${

@@ -32,17 +32,14 @@
 
 .favourites .delete-btn{
     background-color: var(--bg-WallPaperGrey);
-
+    color: var(--color-LoyalBlue);
     width: 25px;
     height: 25px;
-    transition: transform 0.2s;
+    transition: transform 0.5s;
 }
 
-
-  
-
 .favourites .delete-btn:hover{
-    transform: scale(1.2);
+    transform: scale(1.4);
 }
 
 .favourites .delete-btn::after{

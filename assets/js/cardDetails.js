@@ -1,6 +1,6 @@
 import { searchForCountry } from "../api/countryServices.js";
 import { displayCardDetailsHTMLContent } from "../display/cardDetails.js";
-import { isDarkModeCheckedInLocalStorage } from "../utils/darkModeState.js";
+import { isDarkModeCheckedInLocalStorage } from "../utils/getFromLocalStorage.js";
 
 const urlParams = new URLSearchParams(window.location.search);
 const country = urlParams.get("card");

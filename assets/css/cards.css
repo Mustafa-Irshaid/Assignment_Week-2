@@ -73,6 +73,7 @@
 
   .scrollable-element {
     max-height: calc(100vh - 280px);
+    overflow-y: scroll;
   }
 
   .scrollable-element::-webkit-scrollbar {

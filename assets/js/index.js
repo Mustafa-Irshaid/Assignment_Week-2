@@ -6,20 +6,28 @@ import {
 import { displayCardsHTMLContent } from "../display/cardsData.js";
 import { displayFavouriteFlagsHTMLContent } from "../display/favouriteCountries.js";
 import { filterDataByRegion } from "../utils/filterDataByRegion.js";
-import { getFavouriteCountriesFromLocalStorage , isDarkModeCheckedInLocalStorage  } from "../utils/getFromLocalStorage.js";
-import { setDarkModeStateInLocalStorage , setFavouriteCountryInLocalStorage  } from "../utils/setInLocalStorage.js";
-
+import {
+  getFavouriteCountriesFromLocalStorage,
+  isDarkModeCheckedInLocalStorage,
+} from "../utils/getFromLocalStorage.js";
+import {
+  setDarkModeStateInLocalStorage,
+  setFavouriteCountryInLocalStorage,
+  deleteFavouriteCountryFromLocalStorage,
+} from "../utils/updateInLocalStorage.js";
 
 const searchForCountryInput = document.getElementById("searchForCountryInput");
 const regionsDropdownMenu = document.getElementById("dropdown-menu");
 const regionsDropdownButtons = document.querySelectorAll(".dropdown-item");
 const cardsContent = document.getElementById("cardsContent");
 const darkModeBtn = document.getElementById("darkMode");
-const favouriteContent = document.getElementById("favContent")
+const favouriteContent = document.getElementById("favContent");
 
 let regionValue = "";
 
 let timeoutId;
+
+let selectedCard = null;
 
 darkModeBtn.addEventListener("change", () => {
   setDarkModeStateInLocalStorage(darkModeBtn.checked);
@@ -34,10 +42,15 @@ searchForCountryInput.addEventListener("keyup", (event) => {
     let data = await searchForCountry(event.target.value);
 
     if (!regionValue) {
-      displayCardsHTMLContent(data, cardsContent);
+      displayCardsHTMLContent(
+        data,
+        await getFavouriteCountriesFromLocalStorage(),
+        cardsContent
+      );
     } else {
       displayCardsHTMLContent(
         await filterDataByRegion(regionValue, "", data),
+        await getFavouriteCountriesFromLocalStorage(),
         cardsContent
       );
     }
@@ -51,12 +64,15 @@ regionsDropdownButtons.forEach((button) => {
     regionsDropdownMenu.innerHTML = button.innerHTML;
     regionValue = button.value;
 
+    console.log(regionValue);
+
     displayCardsHTMLContent(
       await filterDataByRegion(
         regionValue,
         searchForCountryInput.value,
         allData
       ),
+      await getFavouriteCountriesFromLocalStorage(),
       cardsContent
     );
   });
@@ -66,7 +82,7 @@ function allowDrop(ev) {
   ev.preventDefault();
 }
 
-function drop(ev) {
+async function drop(ev) {
   ev.preventDefault();
 
   var serializedElement = ev.dataTransfer.getData("text/html");
@@ -76,12 +92,18 @@ function drop(ev) {
 
   const flagTitle = tempElement.querySelector("h5").innerHTML;
   const flagSource = tempElement.querySelector("img").getAttribute("src");
-  
-  
-  if(!setFavouriteCountryInLocalStorage(flagTitle , flagSource)){
+
+  updateCardStar(selectedCard);
+
+  if (!setFavouriteCountryInLocalStorage(flagTitle, flagSource)) {
     return;
   }
-  
+
+  // displayCardsHTMLContent(
+  //   await filterDataByRegion(regionValue, searchForCountryInput.value, allData),
+  //   await getFavouriteCountriesFromLocalStorage(),
+  //   cardsContent
+  // );
 
   tempElement.innerHTML = `
       <div
@@ -115,38 +137,39 @@ function drop(ev) {
 function drag(ev) {
   const card = ev.target.closest(".card");
 
-  const img = card.querySelector(".flag-img").cloneNode(true);
-  const header = card.querySelector(".card-title").cloneNode(true);
+  if (card) selectedCard = card.parentNode;
 
-  const htmlElement = document.createElement("div");
-
-  // const htmlHeader = document.createElement("h5");
-
-  htmlElement.classList.add(
-    "col-9",
-    "d-flex",
-    "align-items-center",
-    "justify-content-start",
-    "gap-2"
-  );
-  // htmlHeader.classList.add("fs-6","mb-0");
-
-  htmlElement.appendChild(img);
-  htmlElement.appendChild(header);
-
-  console.log(htmlElement);
-
-  const serializedElement = htmlElement.outerHTML;
-
-  ev.dataTransfer.setData("text/html", serializedElement);
-  // console.log(ev.dataTransfer.getData("text"));
+  ev.dataTransfer.setData("text/html", card.outerHTML);
 }
 
-const eventListenersForFavouriteCountriesDragAndDrop = ()=>{
+function updateCardStar(card) {
+  const cardStar = card.querySelector(".fa-star");
+  cardStar.classList.toggle("color-favourite");
+}
+
+function deleteFavFlag(event) {
+  const { tagName } = event.target;
+
+  if (tagName === "A") {
+    const favCard = event.target.closest(".flag-content");
+
+    const favTitle = favCard.querySelector("h5").innerText;
+
+    const card = cardsContent.querySelector(`#${favTitle}`);
+    updateCardStar(card.parentNode);
+
+    deleteFavouriteCountryFromLocalStorage(favTitle);
+
+    favCard.parentElement.removeChild(favCard);
+  }
+}
+
+const eventListenersForFavouriteCountriesDragAndDrop = () => {
   favouriteContent.addEventListener("drop", drop);
   favouriteContent.addEventListener("dragover", allowDrop);
+  favouriteContent.addEventListener("click", deleteFavFlag);
   cardsContent.addEventListener("dragstart", drag);
-}
+};
 
 // Window onload bring all of the data from API
 
@@ -165,5 +188,8 @@ window.addEventListener("load", async (event) => {
   eventListenersForFavouriteCountriesDragAndDrop();
 
   // Display Favourite Countries after it fetching it from local storage
-  displayFavouriteFlagsHTMLContent(await getFavouriteCountriesFromLocalStorage(),favouriteContent);
+  displayFavouriteFlagsHTMLContent(
+    await getFavouriteCountriesFromLocalStorage(),
+    favouriteContent
+  );
 });
