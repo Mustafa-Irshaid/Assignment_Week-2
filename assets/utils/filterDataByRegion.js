@@ -5,24 +5,18 @@ import { getFavouriteCountriesFromLocalStorage } from "./getFromLocalStorage.js"
 export const filterDataByRegion = (region, country, data) => {
   country = country.toLowerCase();
 
-  
-
   let filteredByRegion = data || [];
 
   if (region == "Favourites") {
-
     let ob = getFavouriteCountriesFromLocalStorage();
 
     filteredByRegion = filteredByRegion.filter((country) => {
-        return ob.hasOwnProperty(country.name.common)
+      return ob.hasOwnProperty(country.name.common);
     });
-
   } else if (region) {
-
     filteredByRegion = filteredByRegion.filter((data) => {
       return data.region == region;
     });
-    
   }
 
   if (!country.length) {

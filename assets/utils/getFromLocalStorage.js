@@ -7,7 +7,6 @@ export const getFavouriteCountriesFromLocalStorage = () => {
   }
 };
 
-
 export const isDarkModeCheckedInLocalStorage = (darkModeBtn) => {
   if (JSON.parse(localStorage.getItem("darkModeState")) == null) {
     localStorage.setItem("darkModeState", false);
