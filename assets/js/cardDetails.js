@@ -1,12 +1,12 @@
 import { searchForCountry } from "../api/countryServices.js";
-import { displayCardDetailsHTMLContent } from "../display/cardDetails.js";
+import { renderCardDetails } from "../render/cardDetails.js";
 import { isDarkModeCheckedInLocalStorage } from "../utils/getFromLocalStorage.js";
 
 const urlParams = new URLSearchParams(window.location.search);
 const country = urlParams.get("card");
 const cardContent = document.getElementById("cardContent");
 
-const cardDetailsLoaderCSSLink = document.querySelector(
+const isLoading = document.querySelector(
   'link[href="/assets/css/cardDetails_Loader.css"]'
 );
 
@@ -22,9 +22,7 @@ window.addEventListener("load", async (event) => {
   // taking the state of dark mode from local storage
   isDarkModeCheckedInLocalStorage(darkModeBtn);
 
-  displayCardDetailsHTMLContent(
-    await searchForCountry(country),
-    cardContent,
-    cardDetailsLoaderCSSLink
-  );
+  renderCardDetails(await searchForCountry(country), cardContent);
+
+  isLoading.remove();
 });

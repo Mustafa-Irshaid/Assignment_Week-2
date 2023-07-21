@@ -1,24 +1,22 @@
 import { numberFormat } from "../utils/numberFormat.js";
 
-// Display HTML Content : Cards Content
+// Renders HTML Content : Cards Details Content
+// 
+// params : data - {object} => Card Details Data
+//          cardDetailsContent - {object} => HTML Element
 
-export const displayCardDetailsHTMLContent = (
-  data,
-  cardContent,
-  cardDetailsLoaderCSSLink
-) => {
-  // Check if the <link> Loader element exists
-  if (cardDetailsLoaderCSSLink) {
-    // Remove the <link> Loader from the document
-    cardDetailsLoaderCSSLink.remove();
-  }
+export const renderCardDetails = (data, cardDetailsContent) => {
+
+  // Error Handling if API Call is Not Found or Data is null
 
   if (data.message == "Not Found" || data.length == 0) {
-    cardContent.innerHTML = `<span>No results Found</span>`;
+    cardDetailsContent.innerHTML = `<span>No results Found</span>`;
     return;
   }
 
   let innerHTMLData = ``;
+
+  // Object Of HTML Content
 
   let content = {
     borderCountries: ``,
@@ -27,6 +25,8 @@ export const displayCardDetailsHTMLContent = (
     currencies: ``,
     languages: ``,
   };
+
+  // Collect Currencies Data
 
   let currenciesArr = Object.values(data[0].currencies);
 
@@ -38,6 +38,8 @@ export const displayCardDetailsHTMLContent = (
     }
   });
 
+  // Collect Languages Data
+
   let languagesArr = Object.values(data[0].languages);
 
   languagesArr.forEach((val, index) => {
@@ -47,6 +49,8 @@ export const displayCardDetailsHTMLContent = (
       content.languages += " , ";
     }
   });
+
+  // Collect Border Data
 
   if (typeof data[0].borders !== "undefined") {
     data[0].borders.map((border) => {
@@ -58,11 +62,15 @@ export const displayCardDetailsHTMLContent = (
     content.borderCountries = `Not Found...`;
   }
 
+  // Card Image Component
+
   content.cardImage = `<!-- Card Image -->
 
   <div class="card-image col-md-5 p-0 overflow-hidden text-center me-3 shadow-sm">
       <img class="card-image--cover w-100" src="${data[0].flags.svg}" alt="image not found">
   </div>`;
+
+  // Card Body Component
 
   content.cardBody = `
   <!-- Card Body -->
@@ -113,9 +121,11 @@ export const displayCardDetailsHTMLContent = (
   <!-- Card Body -->
   `;
 
-  // Card inner HTML information
+  // Card inner HTML information = Card Img + Card Body
 
   innerHTMLData = content.cardImage + content.cardBody;
 
-  cardContent.innerHTML = innerHTMLData;
+  // Set Inner HTML for Card Details Content
+
+  cardDetailsContent.innerHTML = innerHTMLData;
 };

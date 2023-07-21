@@ -3,8 +3,8 @@ import {
   searchForCountry,
   allCountriesData,
 } from "../api/countryServices.js";
-import { displayCardsHTMLContent } from "../display/cardsData.js";
-import { displayFavouriteFlagsHTMLContent } from "../display/favouriteCountries.js";
+import { displayCardsHTMLContent } from "../render/cardsData.js";
+import { displayFavouriteFlagsHTMLContent } from "../render/favouriteCountries.js";
 import { filterDataByRegion } from "../utils/filterDataByRegion.js";
 import {
   getFavouriteCountriesFromLocalStorage,
@@ -96,7 +96,6 @@ async function drop(ev) {
   if (!setFavouriteCountryInLocalStorage(flagTitle, flagSource)) {
     return;
   }
-
 
   tempElement.innerHTML = `
       <div

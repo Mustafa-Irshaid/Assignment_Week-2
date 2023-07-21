@@ -1,4 +1,4 @@
-// caching 
+// Caching all countries data
 
 export let allCountriesData = [];
 
