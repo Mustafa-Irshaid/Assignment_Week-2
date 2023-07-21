@@ -1,7 +1,7 @@
 import {
   getAllCountries,
   searchForCountry,
-  allData,
+  allCountriesData,
 } from "../api/countryServices.js";
 import { displayCardsHTMLContent } from "../display/cardsData.js";
 import { displayFavouriteFlagsHTMLContent } from "../display/favouriteCountries.js";
@@ -64,13 +64,11 @@ regionsDropdownButtons.forEach((button) => {
     regionsDropdownMenu.innerHTML = button.innerHTML;
     regionValue = button.value;
 
-    console.log(regionValue);
-
     displayCardsHTMLContent(
       await filterDataByRegion(
         regionValue,
         searchForCountryInput.value,
-        allData
+        allCountriesData
       ),
       await getFavouriteCountriesFromLocalStorage(),
       cardsContent
@@ -99,11 +97,6 @@ async function drop(ev) {
     return;
   }
 
-  // displayCardsHTMLContent(
-  //   await filterDataByRegion(regionValue, searchForCountryInput.value, allData),
-  //   await getFavouriteCountriesFromLocalStorage(),
-  //   cardsContent
-  // );
 
   tempElement.innerHTML = `
       <div
@@ -158,6 +151,7 @@ function deleteFavFlag(event) {
     const card = cardsContent.querySelector(
       `#${favTitle.split(" ").join("-")}`
     );
+
     updateCardStar(card.parentNode);
 
     deleteFavouriteCountryFromLocalStorage(favTitle);
