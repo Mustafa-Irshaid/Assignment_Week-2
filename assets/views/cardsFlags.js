@@ -4,7 +4,7 @@ import { isKeyExistInObject } from "../utils/verifyKeyExistence.js";
 // Display HTML Content : Cards Content
 
 // Display HTML Content: Cards Content
-export const displayCardsHTMLContent = (
+export const renderCardsFlags = (
   data,
   favouriteCountries,
   cardsContent

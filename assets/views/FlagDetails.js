@@ -5,7 +5,7 @@ import { numberFormat } from "../utils/numberFormat.js";
 // params : data - {object} => Card Details Data
 //          cardDetailsContent - {object} => HTML Element
 
-export const renderCardDetails = (data, cardDetailsContent) => {
+export const renderFlagDetails = (data, cardDetailsContent) => {
 
   // Error Handling if API Call is Not Found or Data is null
 

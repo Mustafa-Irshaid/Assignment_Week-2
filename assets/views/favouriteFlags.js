@@ -1,4 +1,4 @@
-export const displayFavouriteFlagsHTMLContent = (obj, element) => {
+export const renderFavouriteFlags = (obj, element) => {
   let innerHTMLContent = ``;
   Object.entries(obj).forEach(([key, value]) => {
     innerHTMLContent += `<div

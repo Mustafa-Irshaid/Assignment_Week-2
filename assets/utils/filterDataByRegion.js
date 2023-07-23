@@ -1,4 +1,4 @@
-import { getFavouriteCountriesFromLocalStorage } from "./getFromLocalStorage.js";
+import { getFavouriteCountriesFromLocalStorage } from "./localStorage.js";
 
 // Filtering based on dropDownMenu
 
