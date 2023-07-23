@@ -48,4 +48,3 @@ export const isDarkModeCheckedInLocalStorage = (darkModeBtn) => {
     darkModeBtn.checked = JSON.parse(localStorage.getItem("darkModeState"));
   }
 };
-

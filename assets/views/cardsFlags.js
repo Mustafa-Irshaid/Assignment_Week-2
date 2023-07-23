@@ -1,14 +1,9 @@
 import { numberFormat } from "../utils/numberFormat.js";
-import { isKeyExistInObject } from "../utils/verifyKeyExistence.js";
+import { doesKeyExist } from "../utils/verifyKeyExistence.js";
 
-// Display HTML Content : Cards Content
+// renders HTML Content: Cards Content
 
-// Display HTML Content: Cards Content
-export const renderCardsFlags = (
-  data,
-  favouriteCountries,
-  cardsContent
-) => {
+export const renderCardsFlags = (data, favouriteCountries, cardsContent) => {
   if (data.message == "Not Found" || data.length == 0) {
     cardsContent.innerHTML = `<span>No results Found</span>`;
     return;
@@ -44,7 +39,7 @@ export const renderCardsFlags = (
           </div>
       </a>
       ${
-        isKeyExistInObject(favouriteCountries, country.name.common)
+        doesKeyExist(favouriteCountries, country.name.common)
           ? `<i class="fa-solid fa-star color-favourite"></i>`
           : `<i class="fa-solid fa-star"></i>`
       }

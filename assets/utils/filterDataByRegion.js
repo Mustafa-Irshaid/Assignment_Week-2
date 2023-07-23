@@ -27,6 +27,5 @@ export const filterDataByRegion = (region, country, data) => {
     return data.name.common.toLowerCase().includes(country);
   });
 
-  console.log(filteredByCountry);
   return filteredByCountry;
 };

@@ -1,14 +1,16 @@
 import {
-  allowDrop,
-  drop,
-  drag,
+  allowDropOnFavouriteFlags,
+  dropOnFavouriteFlags,
+  dragFromFlagsCards,
   deleteFavFlag,
   sendFavouriteCardToLocalStorage,
   handleCountriesFilter,
   handleSearchCountriesChange,
   handleToggleDarkModeState,
-  renderIndex
+  renderIndex,
 } from "./controller.js";
+
+// HTML Selectors
 
 const searchForCountryInput = document.getElementById("searchForCountryInput");
 const cardsContent = document.getElementById("cardsContent");
@@ -16,12 +18,16 @@ const darkModeBtn = document.getElementById("darkMode");
 const favouriteContent = document.getElementById("favContent");
 const dropDownMenu = document.getElementById("dropDownMenu");
 
+// These Event Listeners are handeled by the controller
+
 const handleEventListeners = () => {
-  favouriteContent.addEventListener("drop", drop);
-  favouriteContent.addEventListener("dragover", allowDrop);
+  favouriteContent.addEventListener("drop", dropOnFavouriteFlags);
+  favouriteContent.addEventListener("dragover", allowDropOnFavouriteFlags);
   favouriteContent.addEventListener("click", deleteFavFlag);
-  cardsContent.addEventListener("dragstart", drag);
-  cardsContent.addEventListener("click", (ev)=>sendFavouriteCardToLocalStorage(ev,favouriteContent));
+  cardsContent.addEventListener("dragstart", dragFromFlagsCards);
+  cardsContent.addEventListener("click", (ev) =>
+    sendFavouriteCardToLocalStorage(ev, favouriteContent)
+  );
   dropDownMenu.addEventListener("click", (ev) =>
     handleCountriesFilter(ev, cardsContent, searchForCountryInput)
   );
@@ -40,5 +46,5 @@ window.addEventListener("load", async (event) => {
   handleEventListeners();
 
   // rendering Index Page
-  renderIndex(favouriteContent,darkModeBtn);  
+  renderIndex(favouriteContent, darkModeBtn);
 });

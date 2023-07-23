@@ -8,7 +8,10 @@ import {
   isDarkModeCheckedInLocalStorage,
 } from "../utils/localStorage.js";
 import { renderCardsFlags } from "../views/cardsFlags.js";
-import { renderFavouriteFlags } from "../views/favouriteFlags.js";
+import {
+  renderFavouriteFlags,
+  favoriteFlagContent,
+} from "../views/favouriteFlags.js";
 import { renderFlagDetails } from "../views/FlagDetails.js";
 import { filterDataByRegion } from "../utils/filterDataByRegion.js";
 import { searchForCountry } from "../api/countryServices.js";
@@ -17,11 +20,15 @@ let selectedCard = null;
 let regionValue = "";
 let timeoutId;
 
-export function allowDrop(ev) {
+// Allows Drop on Favourite Flags Section
+
+export function allowDropOnFavouriteFlags(ev) {
   ev.preventDefault();
 }
 
-export async function drop(ev) {
+// Drop Funtionallity on Favourite FLags Section
+
+export async function dropOnFavouriteFlags(ev) {
   ev.preventDefault();
 
   var serializedElement = ev.dataTransfer.getData("text/html");
@@ -38,27 +45,7 @@ export async function drop(ev) {
     return;
   }
 
-  tempElement.innerHTML = `
-        <div
-          class="flag-content me-1 rounded-2 d-flex justify-content-between align-items-center">
-          <div
-            class="col-9 d-flex align-items-center justify-content-start gap-2">
-            <img
-              class="rounded-2"
-              src="${flagSource}"
-              height="35px"
-              width="53px"
-              alt="notfound" />
-            <h5 class="fs-6 mb-0">${flagTitle}</h5>
-          </div>
-          <div class="col-2 d-flex justify-content-center">
-            <a
-              href="#"
-              class="delete-btn d-flex justify-content-center align-items-center rounded-circle position-relative">
-            </a>
-          </div>
-        </div>
-      `;
+  favoriteFlagContent(flagSource, flagTitle, tempElement);
 
   // Start adding data to container
 
@@ -67,7 +54,9 @@ export async function drop(ev) {
   favContainer.appendChild(tempElement.firstElementChild);
 }
 
-export function drag(ev) {
+// Drag Flags From Cards To Favourite Flags Section
+
+export function dragFromFlagsCards(ev) {
   const card = ev.target.closest(".card");
 
   if (card) selectedCard = card.parentNode;
@@ -75,10 +64,14 @@ export function drag(ev) {
   ev.dataTransfer.setData("text/html", card.outerHTML);
 }
 
+// Toggle The Flags Card by the Star on Mobile Screens
+
 export function updateCardStar(card) {
   const cardStar = card.querySelector(".fa-star");
   cardStar.classList.toggle("color-favourite");
 }
+
+// Delete Favourite Flags from its Section
 
 export function deleteFavFlag(event) {
   const { tagName } = event.target;
@@ -92,6 +85,9 @@ export function deleteFavFlag(event) {
       `#${favTitle.split(" ").join("-")}`
     );
 
+    if(card.parentNode==null){
+      return;
+    }
     updateCardStar(card.parentNode);
 
     deleteFavouriteCountryFromLocalStorage(favTitle);
@@ -100,9 +96,10 @@ export function deleteFavFlag(event) {
   }
 }
 
-export async function sendFavouriteCardToLocalStorage(event,favouriteContent) {
+// Set Favourite Flag in local storage after it Dragged to it
+
+export async function sendFavouriteCardToLocalStorage(event, favouriteContent) {
   const { tagName } = event.target;
-  console.log(tagName);
 
   if (tagName === "I") {
     const card = event.target.parentNode;
@@ -121,6 +118,8 @@ export async function sendFavouriteCardToLocalStorage(event,favouriteContent) {
     );
   }
 }
+
+// Handle DropDown Filter for filtering flags Cards
 
 export const handleCountriesFilter = async (
   ev,
@@ -152,6 +151,8 @@ export const handleCountriesFilter = async (
   }
 };
 
+// Handle Search Countries onKeyUp Change
+
 export const handleSearchCountriesChange = async (ev, cardsContent) => {
   clearTimeout(timeoutId);
 
@@ -174,11 +175,15 @@ export const handleSearchCountriesChange = async (ev, cardsContent) => {
   }, 200);
 };
 
+// Handle The State Of DarkMode Btn in localStorage
+
 export const handleToggleDarkModeState = (darkModeBtn) => {
   setDarkModeStateInLocalStorage(darkModeBtn.checked);
 };
 
-export const renderIndex = async (favouriteContent,darkModeBtn) => {
+// Rendering Flags Cards and Favourite Cards sections in index page
+
+export const renderIndex = async (favouriteContent, darkModeBtn) => {
   // taking the state of dark mode from local storage
   isDarkModeCheckedInLocalStorage(darkModeBtn);
 
@@ -194,6 +199,8 @@ export const renderIndex = async (favouriteContent,darkModeBtn) => {
     favouriteContent
   );
 };
+
+// Rendering card Details Section in cardDetails Page
 
 export const renderCardDetails = async (country, cardContent, darkModeBtn) => {
   // taking the state of dark mode from local storage

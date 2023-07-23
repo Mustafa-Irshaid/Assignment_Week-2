@@ -1,12 +1,11 @@
 import { numberFormat } from "../utils/numberFormat.js";
 
 // Renders HTML Content : Cards Details Content
-// 
+//
 // params : data - {object} => Card Details Data
 //          cardDetailsContent - {object} => HTML Element
 
 export const renderFlagDetails = (data, cardDetailsContent) => {
-
   // Error Handling if API Call is Not Found or Data is null
 
   if (data.message == "Not Found" || data.length == 0) {
