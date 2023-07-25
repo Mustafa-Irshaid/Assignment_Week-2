@@ -9,12 +9,12 @@
   background-color: var(transparent);
   font-family: sans-serif;
   border: none !important;
-  transition: background-color 0.2s linear;
 }
 
 body {
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 
 :root {
@@ -29,7 +29,7 @@ body {
   --bg-CoolBlue-element: #2b3945;
   --color-LoyalWhite: #ececec;
   --color-LightCoolGrey-info: #cfcbcb;
-  
+
   /* public */
   --bs-body-bg: transparent;
   --CentralizedContainerWidth: 90%;
@@ -49,4 +49,26 @@ a {
 
 .shadow-sm {
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px !important;
+}
+
+/* custom scrollbar */
+
+.scrollable-element {
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.scrollable-element::-webkit-scrollbar {
+  width: 0.5em;
+  height: 0.5em;
+}
+
+.scrollable-element::-webkit-scrollbar-track {
+  background-color: var(--bg-White-element);
+  margin-block: 0.1em;
+}
+
+.scrollable-element::-webkit-scrollbar-thumb {
+  background: var(--color-LightCoolGrey-info);
+  border-radius: 100vw;
 }
