@@ -45,13 +45,6 @@
   color: var(--color-DarkCoolGrey-info);
 }
 
-/* Favourites */
-
-.favourites {
-  min-height: 70vh;
-  background-color: var(--bg-White-element);
-}
-
 @media only screen and (min-width: 903px) {
   .card-section img {
     height: 200px;
@@ -68,5 +61,55 @@
   .card-hover--scale-down:hover {
     transform: scale(0.95);
     box-shadow: none !important;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  body {
+    overflow: hidden;
+  }
+
+  /* custom scrollbar */
+
+  .scrollable-element {
+    max-height: calc(100vh - 280px);
+    overflow-y: scroll;
+  }
+
+  .scrollable-element::-webkit-scrollbar {
+    display: block;
+    width: 0.5em;
+    height: 0.5em;
+  }
+
+  .scrollable-element::-webkit-scrollbar-track {
+    background-color: var(--bg-White-element);
+    border: 1px solid rgba(201, 201, 201, 0.309);
+    margin-block: 0.1em;
+    margin-left: 10px;
+  }
+
+  .scrollable-element::-webkit-scrollbar-thumb {
+    display: inline-block;
+    background: var(--color-LightCoolGrey-info);
+    border-radius: 100vw;
+  }
+
+  .fa-star {
+    visibility: hidden;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .fa-star {
+    position: absolute;
+    bottom: 13px;
+    right: 28px;
+    font-size: 1.2rem;
+    color: var(--color-LightCoolGrey-info);
+  }
+
+  .color-favourite {
+    color: var(--color-favourite);
   }
 }

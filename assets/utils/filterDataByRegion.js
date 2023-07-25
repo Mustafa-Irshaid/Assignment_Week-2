@@ -1,11 +1,19 @@
+import { getFavouriteCountriesFromLocalStorage } from "./localStorage.js";
+
 // Filtering based on dropDownMenu
 
 export const filterDataByRegion = (region, country, data) => {
   country = country.toLowerCase();
 
-  let filteredByRegion = data;
+  let filteredByRegion = data || [];
 
-  if (region) {
+  if (region == "Favourites") {
+    let ob = getFavouriteCountriesFromLocalStorage();
+
+    filteredByRegion = filteredByRegion.filter((country) => {
+      return ob.hasOwnProperty(country.name.common);
+    });
+  } else if (region) {
     filteredByRegion = filteredByRegion.filter((data) => {
       return data.region == region;
     });

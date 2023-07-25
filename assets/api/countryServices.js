@@ -1,90 +1,78 @@
-export let allData = [];
-export let currentData = [];
+// Caching all countries data
 
-let mainURL = "https://restcountries.com/v3.1";
+export let allCountriesData = [];
 
-// Service 1
+// Global Variables
+
+const MAIN_URL = "https://restcountries.com/v3.1";
+let url = ``;
+
+// API Get Method
+
+const getAPI = async (url)=>{
+  try{
+    const response = await fetch(url, {
+      method: "GET",
+      mode: "cors",
+      cache: "default",
+      credentials: "same-origin",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      redirect: "follow",
+      referrerPolicy: "no-referrer",
+    });
+
+    return await response.json();
+  }
+  catch(error){
+    console.log("Error:", error);
+  }
+}
+
+// Get All Countries
 
 export const getAllCountries = async () => {
-  try {
-    let url = ``;
-
+  
     // If Search Bar is empty and Data already exists => show the existing data
 
-    if (allData.length != 0) {
-      currentData = allData;
-      return allData;
+    if (allCountriesData.length != 0) {
+      return allCountriesData;
     }
 
     // If Data Does not Exist bring all the data
 
-    url = `${mainURL}/all?fields=true&fields=name,flags,region,capital,population`;
+    url = `${MAIN_URL}/all?fields=true&fields=name,flags,region,capital,population`;
 
-    // API Call
+    const data = await getAPI(url)
+    
+    // caching all countries data
 
-    const response = await fetch(url, {
-      method: "GET",
-      mode: "cors",
-      cache: "default",
-      credentials: "same-origin",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      redirect: "follow",
-      referrerPolicy: "no-referrer",
-    });
-
-    const data = await response.json();
-
-    // Set all of the data if does not exist in allData variable
-
-    if (allData.length === 0) {
-      allData = data;
+    if (allCountriesData.length === 0) {
+      allCountriesData = data;
     }
 
     // return Data
     return data;
-  } catch (error) {
-    console.log("Error:", error);
-  }
-  return [];
 };
 
-// Service 2
+// Search For a country
 
 export const searchForCountry = async (searchTerm) => {
-  try {
-    let url = ``;
+
     // Append search term as query parameter if provided
 
     if (searchTerm != "") {
-      url = `${mainURL}/name/${searchTerm}`;
+      url = `${MAIN_URL}/name/${searchTerm}`;
     } else {
-      return allData;
+      return allCountriesData;
     }
 
     // API Call
 
-    const response = await fetch(url, {
-      method: "GET",
-      mode: "cors",
-      cache: "default",
-      credentials: "same-origin",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      redirect: "follow",
-      referrerPolicy: "no-referrer",
-    });
-
-    const data = await response.json();
-
-    currentData = data;
+    const data = await getAPI(url)
 
     // return Data
+
     return data;
-  } catch (error) {
-    console.log("Error:", error);
-  }
-  return [];
 };
