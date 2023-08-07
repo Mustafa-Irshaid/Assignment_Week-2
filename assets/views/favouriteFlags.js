@@ -29,9 +29,10 @@ export const favoriteFlagContent = (flagSource, flagTitle, selector) => {
 
 export const renderFavouriteFlags = (obj, element) => {
   let innerHTMLContent = ``;
-  Object.entries(obj).forEach(([key, value]) => {
-    innerHTMLContent += favoriteFlagContent(value, key, innerHTMLContent);
-  });
+  obj &&
+    Object.entries(obj)?.forEach(([key, value]) => {
+      innerHTMLContent += favoriteFlagContent(value, key, innerHTMLContent);
+    });
 
   element.innerHTML = innerHTMLContent;
 };

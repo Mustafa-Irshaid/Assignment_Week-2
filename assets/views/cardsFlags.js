@@ -39,7 +39,7 @@ export const renderCardsFlags = (data, favouriteCountries, cardsContent) => {
           </div>
       </a>
       ${
-        doesKeyExist(favouriteCountries, country.name.common)
+        favouriteCountries?.hasOwnProperty(country.name.common)
           ? `<i class="fa-solid fa-star color-favourite"></i>`
           : `<i class="fa-solid fa-star"></i>`
       }
